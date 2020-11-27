@@ -1,0 +1,40 @@
+name: GitHub Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
+
+      - name: Setup | Go
+        uses: actions/setup-go@v2.1.3
+        with:
+          go-version: "^1.15.x"
+
+      - name: Setup | Release Notes
+        run: |
+          go get -u github.com/git-chglog/git-chglog/cmd/git-chglog
+          git-chglog -c .github/chglog/release.yml $(git describe --tags) > RELEASE.md
+
+      - name: Setup | Archive Release
+        uses: TheDoctor0/zip-release@0.4.1
+        with:
+          path: "completions/ conf.d/ functions/"
+          filename: emc.fish.zip
+
+      - name: Build | Publish
+        uses: softprops/action-gh-release@v0.1.5
+        with:
+          files: emc.fish.zip
+          body_path: RELEASE.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

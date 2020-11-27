@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "name": "emc.fish",
+  "description": "Edit My Config",
+  "version": "1.0.0",
+  "author": {
+    "name": "Iolar Demartini Junior",
+    "email": "iolardemartini@gmail.com",
+    "url": "https://demartini.dev"
+  },
+  "contributors": [
+    {
+      "name": "Edit My Config Contributors",
+      "url": "https://github.com/demartini/emc.fish/graphs/contributors"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demartini/emc.fish.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/demartini/emc.fish/issues"
+  },
+  "homepage": "https://github.com/demartini/emc.fish#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "husky": "^4.3.0",
+    "standard-version": "^9.0.0"
+  },
+  "scripts": {
+    "release": "standard-version"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
