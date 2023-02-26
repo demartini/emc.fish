@@ -7,6 +7,7 @@ complete --command $EMC_CMD --no-files --arguments fish --condition "__fish_use_
 complete --command $EMC_CMD --no-files --arguments git --condition "__fish_use_subcommand" --description "Opens the Git config file."
 complete --command $EMC_CMD --no-files --arguments gpg --condition "__fish_use_subcommand" --description "Opens the GPG config file."
 complete --command $EMC_CMD --no-files --arguments gpga --condition "__fish_use_subcommand" --description "Opens the GPG agent config file."
+complete --command $EMC_CMD --no-files --arguments ssh --condition "__fish_use_subcommand" --description "Opens the SSH config file."
 complete --command $EMC_CMD --no-files --arguments nvim --condition "__fish_use_subcommand" --description "Opens the Neovim config file."
 complete --command $EMC_CMD --no-files --arguments starship --condition "__fish_use_subcommand" --description "Opens the starship config file."
 complete --command $EMC_CMD --no-files --arguments tmux --condition "__fish_use_subcommand" --description "Opens the tmux config file."
