@@ -27,6 +27,9 @@ function __emc -d "Edit My Config"
         case 'gpga'
             _emc_gpga
 
+        case 'ssh'
+            _emc_ssh
+
         case 'nvim'
             _emc_nvim
 
@@ -62,6 +65,7 @@ function _emc_help
     echo -e "   git        Opens the Git config file."
     echo -e "   gpg        Opens the GPG config file."
     echo -e "   gpga       Opens the GPG agent config file."
+    echo -e "   ssh        Opens the SSH config file."
     echo -e "   nvim       Opens the Neovim config file."
     echo -e "   starship   Opens the starship config file."
     echo -e "   tmux       Opens the tmux config file."
@@ -119,6 +123,16 @@ function _emc_gpga
         command $EMC_EDITOR $file
     else
         echo -e (set_color red --bold)"✗ The" (set_color --underline)"~/.gnupg/gpg-agent.conf"(set_color normal) (set_color red --bold)"file does not exist."(set_color normal)
+    end
+end
+
+function _emc_ssh
+    set file $HOME/.ssh/config
+    if test -f $file
+        echo -e (set_color cyan)"→ Opening" (set_color --underline)"~/.ssh/config"(set_color normal) (set_color cyan)"file."(set_color normal)
+        command $EMC_EDITOR $file
+    else
+        echo -e (set_color red --bold)"✗ The" (set_color --underline)"~/.ssh/config"(set_color normal) (set_color red --bold)"file does not exist."(set_color normal)
     end
 end
 
