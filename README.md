@@ -64,20 +64,23 @@ $ emc [<option>]
 
 ![demo][]
 
-| **Option**     | **Description**                  |
-| -------------- | -------------------------------- |
-| `emc bash`     | Opens the Bash config file.      |
-| `emc fish`     | Opens the Fish config file.      |
-| `emc git`      | Opens the Git config file.       |
-| `emc gpg`      | Opens the GPG config file.       |
-| `emc gpga`     | Opens the GPG agent config file. |
-| `emc nvim`     | Opens the Neovim config file.    |
-| `emc starship` | Opens the starship config file.  |
-| `emc tmux`     | Opens the tmux config file.      |
-| `emc vim`      | Opens the Vim config file.       |
-| `emc zsh`      | Opens the Zsh config file.       |
-| `emc version`  | Show the current version.        |
-| `emc help`     | Print help.                      |
+| **Option**     | **Description**                                                    |
+| -------------- | ------------------------------------------------------------------ |
+| `emc bash`                                | Opens the Bash config file.             |
+| `emc fish`                                | Opens the Fish config file.             |
+| `emc git`                                 | Opens the Git config file.              |
+| `emc gpg`                                 | Opens the GPG config file.              |
+| `emc gpga`                                | Opens the GPG agent config file.        |
+| `emc nvim`                                | Opens the Neovim config file.           |
+| `emc starship`                            | Opens the starship config file.         |
+| `emc tmux`                                | Opens the tmux config file.             |
+| `emc vim`                                 | Opens the Vim config file.              |
+| `emc zsh`                                 | Opens the Zsh config file.              |
+| `emc add <name> <path/to/file/from/home>` | Adds new option.                        |
+| `emc remove <name>`                       | Removes an option.                      |
+| `emc list`                                | List all options, including user added. |
+| `emc version`                             | Show the current version.               |
+| `emc help`                                | Print help.                             |
 
 ## Customization
 
@@ -109,6 +112,38 @@ Alternatively, you can add the following line to your `~/.config/fish/config.fis
 set --export EMC_EDITOR nvim
 ```
 
+### Using custom config files 
+Using the `add` option, you can add your own config files to `emc`. For example:
+
+```fish
+❯ emc add foo .config/bar
+Adding 'foo','.config/bar' to ~/.config/fish/conf.d/emc_options.txt
+```
+The add command assumes the file is in your home directory, so you don't need to add the full path.
+
+If you are uncertain about everything you have added, you can list all options with the `list` option. For example:
+
+```fish
+❯ emc list
+Option: bash
+Config location: ~/.bashrc
+
+Option: fish
+Config location: ~/.config/fish/config.fish
+[...]
+Option: foo
+Config location: ~/.config/bar
+```
+
+
+The option can be removed with the `remove` option. For example:
+
+```fish
+❯ emc remove foo
+Adding 'foo','.config/bar' to ~/.config/fish/conf.d/emc_options.txt
+```
+
+ 
 ## Contributing
 
 If you are interested in helping contribute, please take a look at our [contribution guidelines][] and open an [issue][] or [pull request][].
