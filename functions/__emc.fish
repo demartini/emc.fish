@@ -61,7 +61,7 @@ end
 function _open_file
     set file $argv[1]
     if test -f $HOME/$file
-        echo -e (set_color cyan)"→ Opening" (set_color --underline)"~/$file"(set_color normal) (set_color cyan)"file."(set_color normal)
+        echo -e (set_color cyan)"→ Opening" (set_color --underline)"~/$file"(set_color normal)
         command $EMC_EDITOR $HOME/$file
     else
         echo -e (set_color red --bold)"✗ The" (set_color --underline)"~/$file"(set_color normal) (set_color red --bold)"file does not exist."(set_color normal)
@@ -91,10 +91,10 @@ function _add_option
     end
 
     if string match -q "$name" $options        
-        echo "Option '$name' already exists in $pretty_path"
+        echo "Option '$name' already exists in '$_pretty_path'"
         return
     else
-        echo "Adding '$name','$file' to $pretty_path"
+        echo "Adding '$name' at '$file' to '$_pretty_path'"
         echo "$name, $file" >> $_options_path
         return
     end
@@ -132,7 +132,7 @@ function _remove_option
     end
     
     if $found_option
-        echo "'$name' was removed from options in $pretty_path"
+        echo "'$name' was removed from options in '$_pretty_path'"
     else
         echo "Found no command '$name'"
     end  
