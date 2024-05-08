@@ -26,15 +26,10 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "husky": "^5.1.1",
+    "simple-git-hooks": "^2.11.1",
     "standard-version": "^9.5.0"
   },
   "scripts": {
     "release": "standard-version"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   }
 }
