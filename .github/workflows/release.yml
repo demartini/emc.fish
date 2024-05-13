@@ -32,7 +32,7 @@ jobs:
           filename: emc.fish.zip
 
       - name: Build | Publish
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: emc.fish.zip
           body_path: RELEASE.md
