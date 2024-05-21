@@ -1,0 +1,11 @@
+bash, .bashrc
+fish, .config/fish/config.fish
+git, .gitconfig
+gpg, gnupg/gpg.conf
+gpga, .gnupg/gpg-agent.conf
+ssh, .ssh/config
+nvim, .config/nvim/init.vim
+starship, .config/starship.toml
+tmux, .tmux.conf
+vim, .vimrc
+zsh, .zshrc
